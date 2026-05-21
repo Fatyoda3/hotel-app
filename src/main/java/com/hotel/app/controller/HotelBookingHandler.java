@@ -1,6 +1,6 @@
 package com.hotel.app.controller;
 
-import com.hotel.app.repository.Booking;
+import com.hotel.app.models.Booking;
 import com.hotel.app.repository.InMemory;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

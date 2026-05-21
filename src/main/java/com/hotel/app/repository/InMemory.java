@@ -1,5 +1,6 @@
 package com.hotel.app.repository;
 
+import com.hotel.app.models.Booking;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

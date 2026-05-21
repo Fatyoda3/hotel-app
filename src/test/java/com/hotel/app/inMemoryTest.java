@@ -1,12 +1,10 @@
 package com.hotel.app;
 
-import com.hotel.app.repository.Booking;
+import com.hotel.app.models.Booking;
 import com.hotel.app.repository.InMemory;
 import org.junit.jupiter.api.Test;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
-import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;

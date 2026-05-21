@@ -1,8 +1,8 @@
 package com.hotel.app.controller;
 
-import com.hotel.app.repository.User;
 import com.hotel.app.repository.Users;
 
+import com.hotel.app.service.UserService;
 import com.hotel.app.utils.JwtUtil;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,29 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AuthController {
-    private final Users users;
+    private final UserService users;
 
-    public AuthController(Users users) {
+    public AuthController(UserService users) {
         this.users = users;
     }
 
     @PostMapping("/api/users/register")
     public String signup(@RequestBody Credentials credentials) {
-        int userId = users.createUser(credentials.username(), credentials.password());
-        String token = JwtUtil.generateToken(userId);
-        return token;
+        String userId = users.createUser(credentials.username(), credentials.password());
+        return JwtUtil.generateToken(userId);
     }
 
     @PostMapping("/api/users/login")
     public String login(@RequestBody Credentials credentials) {
+        String userId = users.getUserId(credentials.username() , credentials.password());
 
-        Integer userId = users.getUserId(credentials.username() , credentials.password());
-        if(userId == -1) {
-            return "Invalid Credentials";
-        }
-
-        String token = JwtUtil.generateToken(userId);
-        return token;
+        return JwtUtil.generateToken(userId);
     }
 
 }
