@@ -28,8 +28,5 @@ public class HotelBookingHandler {
                 .body(bookings);
     }
 
-    @GetMapping("/")
-    public ResponseEntity<String> texty() {
-        return ResponseEntity.ok().body("Hello wow");
-    }
+
 }

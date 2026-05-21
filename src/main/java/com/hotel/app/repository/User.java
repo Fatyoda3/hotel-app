@@ -1,8 +1,8 @@
 package com.hotel.app.repository;
 
 public class User {
-    private final String username;
-    private final String password;
+     final String username;
+     final String password;
 
     public User(String username, String password) {
         this.username = username;
