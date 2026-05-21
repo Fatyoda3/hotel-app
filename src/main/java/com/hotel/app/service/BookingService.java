@@ -19,11 +19,13 @@ public class BookingService {
         this.bookingId = 0;
     }
 
-    public BookingRequest.BookingRecord book(BookingRequest bookingRequest) {
+    public BookingRequest.BookingRecord book(BookingRequest bookingRequest, double price) {
         BookingRequest.BookingRecord bookingRecord = new BookingRequest.BookingRecord(this.nextId(),
                 "123",
                 bookingRequest.hotelId(),
-                bookingRequest.rooms());
+                bookingRequest.rooms(),
+                bookingRequest.rooms() * price
+        );
 
         this.bookingRepository.save(bookingRecord);
         return bookingRecord;

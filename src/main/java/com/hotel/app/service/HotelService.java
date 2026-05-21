@@ -24,9 +24,9 @@ public class HotelService {
 
     @PostConstruct
     private void addHotels() {
-        Hotel hotel1 = new Hotel(this.NextId(), "Continental", 10, "New York");
-        Hotel hotel2 = new Hotel(this.NextId(), "Tower", 5, "Prayagraj");
-        Hotel hotel3 = new Hotel(this.NextId(), "Sackson", 3, "New York");
+        Hotel hotel1 = new Hotel(this.NextId(), "Continental", 10, "New York",100);
+        Hotel hotel2 = new Hotel(this.NextId(), "Tower", 5, "Prayagraj",900);
+        Hotel hotel3 = new Hotel(this.NextId(), "Sackson", 3, "New York",108);
         hotelRepo.save(hotel1);
         hotelRepo.save(hotel2);
         hotelRepo.save(hotel3);
@@ -44,10 +44,12 @@ public class HotelService {
         int hotelId = bookingRequest.hotelId();
         int rooms = bookingRequest.rooms();
         Hotel hotel = hotelRepo.getHotelsByHotelId(hotelId);
+
         if (rooms > hotel.availableRooms()) {
             throw new InvalidRequestException(msg.formatted(hotel.availableRooms()));
         }
-        this.bookingService.book(bookingRequest);
+
+        this.bookingService.book(bookingRequest,hotel.price());
         int updatedRooms = hotel.availableRooms() - rooms;
         this.hotelRepo.updateAvailableRoomsByHotelId(hotelId, updatedRooms);
     }
