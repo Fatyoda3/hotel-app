@@ -1,7 +1,7 @@
 package com.hotel.app.controller;
 
-import com.hotel.app.service.BookingService;
-import com.hotel.app.views.BookingRequest;
+import com.hotel.app.services.BookingService;
+import com.hotel.app.views.BookingRecord;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +21,10 @@ public class DownloadPdfController {
 
     @GetMapping("/api/bookings/{userId}/receiptreceipt.pdf")
     public ResponseEntity<String> downloadPdf(@PathVariable String userId) {
-        List<BookingRequest> bookingsByUserId = bookingService.getBookingsByUSerId(userId);
+        List<BookingRecord> bookingsByUserId = bookingService.getBookingsByUSerId(userId);
         String pdf = bookingService.buildPdf(bookingsByUserId);
 
-        return ResponseEntity.ok()
-                .contentType(MediaType.APPLICATION_PDF)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachement; filename=receiptreceipt.pdf").body(pdf);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF).header(HttpHeaders.CONTENT_DISPOSITION, "attachement; filename=receiptreceipt.pdf").body(pdf);
     }
 
 

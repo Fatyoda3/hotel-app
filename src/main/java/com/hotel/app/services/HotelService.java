@@ -1,4 +1,4 @@
-package com.hotel.app.service;
+package com.hotel.app.services;
 
 import com.hotel.app.exceptions.InvalidRequestException;
 import com.hotel.app.views.Hotel;

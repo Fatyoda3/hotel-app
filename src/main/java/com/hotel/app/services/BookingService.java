@@ -1,6 +1,7 @@
-package com.hotel.app.service;
+package com.hotel.app.services;
 
 import com.hotel.app.repository.BookingRepository;
+import com.hotel.app.views.BookingRecord;
 import com.hotel.app.views.BookingRequest;
 import org.springframework.stereotype.Service;
 
@@ -10,18 +11,18 @@ import java.util.List;
 @Service
 public class BookingService {
 
-    private final HashMap<String, BookingRequest.BookingRecord> bookingDetails;
+    private final HashMap<String, BookingRecord> bookingDetails;
     private final BookingRepository bookingRepository;
     private int bookingId;
 
     public BookingService(BookingRepository bookingRepository) {
         this.bookingRepository = bookingRepository;
-        this.bookingDetails = new HashMap<String, BookingRequest.BookingRecord>();
+        this.bookingDetails = new HashMap<String, BookingRecord>();
         this.bookingId = 0;
     }
 
-    public BookingRequest.BookingRecord book(BookingRequest bookingRequest) {
-        BookingRequest.BookingRecord bookingRecord = new BookingRequest.BookingRecord(this.nextId(),
+    public BookingRecord book(BookingRequest bookingRequest) {
+        BookingRecord bookingRecord = new BookingRecord(this.nextId(),
                 "123",
                 bookingRequest.hotelId(),
                 bookingRequest.rooms());
@@ -30,7 +31,7 @@ public class BookingService {
         return bookingRecord;
     }
 
-    public List<BookingRequest> getBookingsByUSerId(String userId) {
+    public List<BookingRecord> getBookingsByUSerId(String userId) {
         return bookingRepository.getBookingsByUserId(userId);
     }
 
@@ -38,9 +39,8 @@ public class BookingService {
         return ++this.bookingId;
     }
 
-    public String buildPdf(List<BookingRequest> bookings) {
+    public String buildPdf(List<BookingRecord> bookings) {
         bookings.forEach(booking -> {
-
 
         });
         return "";
