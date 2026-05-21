@@ -21,9 +21,10 @@ public class BookingService {
         this.bookingId = 0;
     }
 
-    public BookingRecord book(BookingRequest bookingRequest) {
+    public BookingRecord book(BookingRequest bookingRequest,String userId) {
+        System.out.println(userId + "at the book");
         BookingRecord bookingRecord = new BookingRecord(this.nextId(),
-                "123",
+                userId,
                 bookingRequest.hotelId(),
                 bookingRequest.rooms());
 

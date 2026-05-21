@@ -4,6 +4,8 @@ import com.hotel.app.exceptions.InvalidRequestException;
 import com.hotel.app.views.Hotel;
 import com.hotel.app.views.BookingRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import com.hotel.app.services.HotelService;
@@ -27,9 +29,10 @@ public class HotelController {
     }
 
     @PostMapping("/bookings")
-    public ResponseEntity<String> BookHotel(@RequestBody BookingRequest bookingRequest) throws InvalidRequestException {
+    public ResponseEntity<String> BookHotel(@RequestBody BookingRequest bookingRequest,   @AuthenticationPrincipal UserDetails userDetails) throws InvalidRequestException {
         try {
-            hotelService.book(bookingRequest);
+            String userId = userDetails.getUsername();
+            hotelService.book(bookingRequest,userId);
             return ResponseEntity.ok("message:booking successful");
         } catch (InvalidRequestException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

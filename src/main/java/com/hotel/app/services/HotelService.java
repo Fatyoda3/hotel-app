@@ -40,14 +40,14 @@ public class HotelService {
         return hotelRepo.getHotelsByCity(city);
     }
 
-    public void book(BookingRequest bookingRequest) throws InvalidRequestException {
+    public void book(BookingRequest bookingRequest,String userId) throws InvalidRequestException {
         int hotelId = bookingRequest.hotelId();
         int rooms = bookingRequest.rooms();
         Hotel hotel = hotelRepo.getHotelsByHotelId(hotelId);
         if (rooms > hotel.availableRooms()) {
             throw new InvalidRequestException(msg.formatted(hotel.availableRooms()));
         }
-        this.bookingService.book(bookingRequest);
+        this.bookingService.book(bookingRequest,userId);
         int updatedRooms = hotel.availableRooms() - rooms;
         this.hotelRepo.updateAvailableRoomsByHotelId(hotelId, updatedRooms);
     }

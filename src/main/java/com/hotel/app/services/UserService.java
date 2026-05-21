@@ -30,6 +30,6 @@ public class UserService {
     }
 
     public String generateId(){
-        return new UUID(0,128).toString();
+        return  UUID.randomUUID().toString();
     }
 }
