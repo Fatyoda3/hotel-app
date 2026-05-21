@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HotelApp {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(HotelApp.class, args);
+
 	}
 
 }
