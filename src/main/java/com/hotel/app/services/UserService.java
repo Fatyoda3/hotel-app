@@ -1,4 +1,4 @@
-package com.hotel.app.service;
+package com.hotel.app.services;
 
 import com.hotel.app.models.User;
 import com.hotel.app.repository.Users;

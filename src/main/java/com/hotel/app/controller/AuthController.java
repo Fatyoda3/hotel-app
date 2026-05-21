@@ -1,8 +1,6 @@
 package com.hotel.app.controller;
 
-import com.hotel.app.repository.Users;
-
-import com.hotel.app.service.UserService;
+import com.hotel.app.services.UserService;
 import com.hotel.app.utils.JwtUtil;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
