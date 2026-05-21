@@ -24,7 +24,6 @@ public class InMemory {
     }
 
     public ArrayList<Booking> getBookingsByUserId(int userId) {
-        System.out.println("HERE in userId");
         ArrayList<Booking> list = new ArrayList<>();
 
         for (Booking booking : this.bookings) {
