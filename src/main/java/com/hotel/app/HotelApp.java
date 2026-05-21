@@ -1,6 +1,7 @@
 package com.hotel.app;
 
 import com.hotel.app.repository.InMemory;
+import com.hotel.app.repository.Users;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -13,7 +14,8 @@ public class HotelApp {
         ConfigurableApplicationContext ctx = app.run(args);
 
         InMemory db = ctx.getBean(InMemory.class);
-
+        db.loadMockData();
+        Users users = ctx.getBean(Users.class);
     }
 
 }

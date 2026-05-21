@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hotel.app.utils.JwtUtilTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T07:01:02.023Z" hostname="Shivangs-MacBook-Pro.local" time="0.119">
+  <properties/>
+  <testcase name="generateTokenTest()" classname="com.hotel.app.utils.JwtUtilTest" time="0.091"/>
+  <testcase name="decodeToken()" classname="com.hotel.app.utils.JwtUtilTest" time="0.027"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.hotel.app.inMemoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T05:38:27.198Z" hostname="Shivangs-MacBook-Pro.local" time="0.023">
+<testsuite name="com.hotel.app.inMemoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T07:01:02.019Z" hostname="Shivangs-MacBook-Pro.local" time="0.004">
   <properties/>
-  <testcase name="shouldReturnBooking()" classname="com.hotel.app.inMemoryTest" time="0.017"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="shouldReturnBooking()" classname="com.hotel.app.inMemoryTest" time="0.003"/>
+  <testcase name="shouldReturnNoBookings()" classname="com.hotel.app.inMemoryTest" time="0.0"/>
+  <system-out><![CDATA[HERE in userId
+HERE in userId
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
