@@ -21,8 +21,8 @@ public class JwtUtil {
         return Jwts.parser().verifyWith(KEY).build().parseSignedClaims(token).getPayload();
     }
 
-    public static int getUserId(String token) {
+    public static String getUserId(String token) {
         Claims claims = decodeToken(token);
-        return Integer.parseInt(claims.getSubject());
+        return (claims.getSubject());
     }
 }
