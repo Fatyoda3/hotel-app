@@ -5,6 +5,7 @@ import com.hotel.app.views.BookingRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class BookingService {
@@ -29,8 +30,19 @@ public class BookingService {
         return bookingRecord;
     }
 
+    public List<BookingRequest> getBookingsByUSerId(String userId) {
+        return bookingRepository.getBookingsByUserId(userId);
+    }
+
     private int nextId() {
         return ++this.bookingId;
     }
 
+    public String buildPdf(List<BookingRequest> bookings) {
+        bookings.forEach(booking -> {
+
+
+        });
+        return "";
+    }
 }

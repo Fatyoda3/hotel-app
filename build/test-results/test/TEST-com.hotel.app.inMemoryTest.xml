@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.hotel.app.inMemoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T07:01:02.019Z" hostname="Shivangs-MacBook-Pro.local" time="0.004">
+<testsuite name="com.hotel.app.inMemoryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T10:31:55.097Z" hostname="Shivangs-MacBook-Pro.local" time="0.003">
   <properties/>
   <testcase name="shouldReturnBooking()" classname="com.hotel.app.inMemoryTest" time="0.003"/>
   <testcase name="shouldReturnNoBookings()" classname="com.hotel.app.inMemoryTest" time="0.0"/>
