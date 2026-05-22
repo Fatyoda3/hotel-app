@@ -12,7 +12,6 @@ public class HotelApp {
         SpringApplication app = new SpringApplication(HotelApp.class);
         ConfigurableApplicationContext ctx = app.run(args);
 
-        InMemory db = ctx.getBean(InMemory.class);
     }
 
 }

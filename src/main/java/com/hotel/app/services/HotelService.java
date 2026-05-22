@@ -47,7 +47,7 @@ public class HotelService {
         if (rooms > hotel.availableRooms()) {
             throw new InvalidRequestException(msg.formatted(hotel.availableRooms()));
         }
-        this.bookingService.book(bookingRequest,userId);
+        this.bookingService.book(bookingRequest,userId);//appi call
         int updatedRooms = hotel.availableRooms() - rooms;
         this.hotelRepo.updateAvailableRoomsByHotelId(hotelId, updatedRooms);
     }
