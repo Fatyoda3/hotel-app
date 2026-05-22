@@ -1,9 +1,5 @@
-FROM gradle:8.7-jdk21
-
-WORKDIR app
-
+FROM gradle:jdk25
+WORKDIR /app
 COPY . .
-
 RUN gradle clean build
-
 CMD ["java","-jar","build/libs/app-0.0.1-SNAPSHOT.jar"]
